@@ -13,7 +13,7 @@ by Alex Shaver
 ### User Interaction
 There are 4 buttons that the user will interact with while playing Arena Brawl in the browser.
 * Fight!
-    * This button will cause the game to call teh opponent for you to fight calculating damage dodge chances and displaying victory or defeat in an alert to the user. If you are defeated the game will reset and you will have to start over
+    * This button will cause the game to call the opponent for you to fight calculating damage dodge chances and displaying victory or defeat in an alert to the user. If you are defeated the game will reset and you will have to start over
 * Victory buttons (these buttons only do anything when the user has won their match and only one can be choosen each win)
     * Attack +
         * This button increases the Attack Points of the player by 1
@@ -24,7 +24,7 @@ There are 4 buttons that the user will interact with while playing Arena Brawl i
 
 Below the img of the players character the page will show what or who they are going up against that round
 There will be 9 opponents that the player could face but there will only be 4 matches played
-* **IF** I finish early I will try to add more difficulties selected on page open through prompt()
+* Difficulties selected on page open through prompt()
     * Easy - 3 Opponents
     * Medium - 6 Opponents
     * Hard - All(9) Opponents
