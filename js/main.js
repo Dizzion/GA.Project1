@@ -5,6 +5,7 @@ const raceSelect = document.querySelector("#raceSelect")
 let playerRace = "";
 const difficultySet = document.querySelectorAll(".diffSet")
 let diff = ""
+const victoryBonus = document.querySelectorAll(".bonus")
 
 class NPC {
     constructor(hp, atk, def, race) {
@@ -74,6 +75,9 @@ class NPC {
 
 window.onload = function () {
     modal.style.display = "block"
+    for (let i = 0; i < victoryBonus.length; i++) {
+        victoryBonus[i].disabled = true;
+    }
 }
 
 raceInput.onclick = function() {

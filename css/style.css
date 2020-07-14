@@ -20,9 +20,12 @@ h1 {
     font-size: 40px;
 }
 #title {
+    background-color: #888;
+    position: relative;
     text-align: center;
     color: #20c449;
-    font-size: 65px;
+    font-size: 105px;
+    top: -70px;
 }
 
 .modal {
@@ -124,8 +127,10 @@ h1 {
 
 .npc {
     display: flex;
+    position: relative;
     justify-content: space-around;
     align-items: center;
+    top: 200px;
 }
 
 .container {
@@ -151,4 +156,48 @@ h1 {
     position: absolute;
     bottom: -15px;
     right: 20px;
+}
+
+.buttons {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 200px;
+}
+
+.victory {
+    display: inline-block;
+    position: relative;
+    justify-content: left;
+    top: 250px;
+}
+
+#Fight {
+    flex-grow: .5;
+    padding: 15px 32px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 45px;
+} 
+
+.bonus {
+    padding: 15px 32px;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+
+#attack {
+    padding: 15px 44px;
+    background-color: maroon;
+}
+
+#defense {
+    background-color: mediumblue;
+}
+
+#heal {
+    padding: 15px 72px;
+    background-color: mediumspringgreen;
 }
