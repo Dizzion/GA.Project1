@@ -369,6 +369,7 @@ function createBob() {
     playerDisplayHP.innerHTML += Bob.health
     playerDispayAtt.innerHTML += Bob.attack
     playerDisplayDef.innerHTML += Bob.defense
+    Bob.maxHP = Bob.health
 }
 
 function easyDiff() {
@@ -385,6 +386,35 @@ function medDiff() {
 }
 
 document.querySelector("#attack").onclick = function() {
+    Bob.attack++
+    playerDispayAtt.innerHTML = ("Attack: " + Bob.attack)
+    AttUP[attPlus].style.opacity = "100"
+    attPlus++
+    for (let i = 0; i < victoryBonus.length; i++) {
+        victoryBonus[i].disabled = true;
+    }
+}
 
+document.querySelector("#defense").onclick = function() {
+    Bob.defense++
+    Bob.maxHP++
+    Bob.health++
+    playerDisplayDef.innerHTML = ("Defense: " + Bob.defense)
+    playerDisplayHP.innerHTML = ("Health: " + Bob.health)
+    DefUP[defPlus].style.opacity = "100"
+    defPlus++
+    for (let i = 0; i < victoryBonus.length; i++) {
+        victoryBonus[i].disabled = true;
+    }
+}
+
+document.querySelector("#heal").onclick = function() {
+    Bob.health = Bob.maxHP
+    playerDisplayHP.innerHTML = ("Health: " + Bob.health)
+    document.querySelectorAll(".heal")[healCount].style.opacity = "0"
+    healCount++
+    for (let i = 0; i < victoryBonus.length; i++) {
+        victoryBonus[i].disabled = true;
+    }
 }
 // fight function
