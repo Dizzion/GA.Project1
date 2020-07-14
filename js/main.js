@@ -81,7 +81,7 @@ class NPC {
     // deathCheck() {
     //     // check if this.life == true or false at the end of the fight function
     //     // if dead shift this combatant out of the enemy array
-    // },
+    // }
     // dmgTaken(num) {
     //     // minus the damage taken from the objects HP
     // }
@@ -101,6 +101,9 @@ const halfling = new NPC(18, 4, 0, "Halfling")
 const elf = new NPC(19, 5, 1, "Elf")
 const orc = new NPC(25, 6, 4, "Orc")
 const human = new NPC(20, 4, 2, "Human")
+const Bob = new NPC(30, 5, 4, "Human")
+Bob.name = "Bob, the Conqueror"
+
 
 const enemy = [goblin, ogre, darkElf, skeleton, lich, halfling, elf, orc, human]
 
@@ -126,9 +129,231 @@ for (let i = 0; i < difficultySet.length; i++) {
         modal.style.display = "none"
         // create the players character based on race chosen
         // base stats 30hp 5att 4def 1speed
+        createBob()
     }
 }
-
+function createBob() {
+    if (playerRace === "Random") {
+        // random choose a race for the player
+        let randoRa = Math.ceil(Math.random() * 8)
+        if (randoRa === 1) {
+            playerRace = "Human"
+            // const Bob = new NPC(30, 5, 4, playerRace)
+            Bob.changeSpeed()
+            Bob.speed += 1
+        } else if (randoRa === 2) {
+            playerRace = "Halfling"
+            // const Bob = new NPC(24, 5, 2, playerRace)
+            Bob.health = 24
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 3) {
+            playerRace = "Goblin"
+            // const Bob = new NPC(24, 5, 2, playerRace)
+            Bob.health = 24
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 4) {
+            playerRace = "Elf"
+            // const Bob = new NPC(26, 6, 2, playerRace)
+            Bob.health = 26
+            Bob.attack = 6
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 5) {
+            playerRace = "Dark Elf"
+            // const Bob = new NPC(26, 6, 2, playerRace)
+            Bob.health = 26
+            Bob.attack = 6
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 6) {
+            playerRace = "Orc"
+            // const Bob = new NPC(32, 7, 6, playerRace)
+            Bob.health = 32
+            Bob.attack = 7
+            Bob.defense = 6
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 7) {
+            playerRace = "Ogre"
+            // const Bob = new NPC(32, 7, 6, playerRace)
+            Bob.health = 32
+            Bob.attack = 7
+            Bob.defense = 6
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else {
+            playerRace = "Undead"
+            // const Bob = new NPC(28, 5, 8, playerRace)
+            Bob.health = 28
+            Bob.attack = 5
+            Bob.defense = 8
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        }
+    } else if (playerRace == "Halfling") {
+        // make the player a halfling
+        // const Bob = new NPC(24, 5, 2, playerRace)
+        Bob.health = 24
+        Bob.defense = 2
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else if (playerRace == "Goblin") {
+        // make the player a goblin
+        // const Bob = new NPC(24, 5, 2, playerRace)
+        Bob.health = 24
+        Bob.defense = 2
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else if (playerRace == "Elf") {
+        // make the player an elf
+        // const Bob = new NPC(26, 6, 2, playerRace)
+        Bob.health = 26
+            Bob.attack = 6
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+    } else if (playerRace == "Dark Elf") {
+        // make the player a dark elf
+        // const Bob = new NPC(26, 6, 2, playerRace)
+        Bob.health = 26
+        Bob.attack = 6
+        Bob.defense = 2
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else if (playerRace == "Human") {
+        // make the player human
+        // const Bob = new NPC(30, 5, 4, playerRace)
+        Bob.changeSpeed()
+        Bob.speed += 1
+    } else if (playerRace == "Orc") {
+        // make the player orc
+        // const Bob = new NPC(32, 7, 6, playerRace)
+        Bob.health = 32
+        Bob.attack = 7
+        Bob.defense = 6
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else if (playerRace == "Ogre") {
+        // make the player an ogre
+        // const Bob = new NPC(32, 7, 6, playerRace)
+        Bob.health = 32
+        Bob.attack = 7
+        Bob.defense = 6
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else if (playerRace == "Undead") {
+        // make the player undead
+        // const Bob = new NPC(28, 5, 8, playerRace)
+        Bob.health = 28
+        Bob.attack = 5
+        Bob.defense = 8
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
+    } else {
+        // random race
+        let randoRa = Math.ceil(Math.random() * 8)
+        if (randoRa === 1) {
+            playerRace = "Human"
+            // const Bob = new NPC(30, 5, 4, playerRace)
+            Bob.changeSpeed()
+            Bob.speed += 1
+        } else if (randoRa === 2) {
+            playerRace = "Halfling"
+            // const Bob = new NPC(24, 5, 2, playerRace)
+            Bob.health = 24
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 3) {
+            playerRace = "Goblin"
+            // const Bob = new NPC(24, 5, 2, playerRace)
+            Bob.health = 24
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 4) {
+            playerRace = "Elf"
+            // const Bob = new NPC(26, 6, 2, playerRace)
+            Bob.health = 26
+            Bob.attack = 6
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 5) {
+            playerRace = "Dark Elf"
+            // const Bob = new NPC(26, 6, 2, playerRace)
+            Bob.health = 26
+            Bob.attack = 6
+            Bob.defense = 2
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 6) {
+            playerRace = "Orc"
+            // const Bob = new NPC(32, 7, 6, playerRace)
+            Bob.health = 32
+            Bob.attack = 7
+            Bob.defense = 6
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else if (randoRa === 7) {
+            playerRace = "Ogre"
+            // const Bob = new NPC(32, 7, 6, playerRace)
+            Bob.health = 32
+            Bob.attack = 7
+            Bob.defense = 6
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        } else {
+            playerRace = "Undead"
+            // const Bob = new NPC(28, 5, 8, playerRace)
+            Bob.health = 28
+            Bob.attack = 5
+            Bob.defense = 8
+            Bob.race = playerRace
+            Bob.changeSpeed()
+            Bob.speed++
+        }
+    }
+}
+function easyDiff() {
+    // run easy version of game 3 opponents
+    while(enemy.length > 3) {
+        enemy.shift(Math.floor(Math.random() * enemy.length))
+    }
+}
+function medDiff() {
+    // run medium version of game 6 opponents
+    while(enemy.length > 6) {
+        enemy.shift(Math.floor(Math.random() * enemy.length))
+    }
+}
+function hardDiff() {
+    // run hard version of game 9 opponents
+}
 // fight function
-// choose how many opponents based on the difficulty
-// randomly choose those opponents for the pool of 9 enemys

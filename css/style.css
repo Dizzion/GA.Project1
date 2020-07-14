@@ -182,14 +182,14 @@ h1 {
 } 
 
 .bonus {
-    padding: 15px 32px;
+    padding: 15px 41px;
     border: none;
     color: white;
     font-size: 25px;
 }
 
 #attack {
-    padding: 15px 44px;
+    padding: 15px 53px;
     background-color: maroon;
 }
 
@@ -198,6 +198,21 @@ h1 {
 }
 
 #heal {
-    padding: 15px 72px;
+    padding: 15px 81px;
     background-color: mediumspringgreen;
+}
+
+.AttUP {
+    position: relative;
+    height: 50px;
+    top: 15px;
+    opacity: 0;
+}
+
+.DefUP {
+    position: relative;
+    height: 50px;
+    width: 65px;
+    top: 15px;
+    opacity: 0;
 }
