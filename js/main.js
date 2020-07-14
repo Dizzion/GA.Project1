@@ -2,10 +2,21 @@
 const modal = document.querySelector("#myModal")
 const raceInput = document.querySelector("#raceSelector")
 const raceSelect = document.querySelector("#raceSelect")
-let playerRace = "";
+let playerRace = ""
 const difficultySet = document.querySelectorAll(".diffSet")
 let diff = ""
 const victoryBonus = document.querySelectorAll(".bonus")
+const AttUP = document.querySelectorAll(".AttUP")
+const DefUP = document.querySelectorAll(".DefUP")
+let healCount = 0
+let attPlus = 0
+let defPlus = 0
+playerDisplayHP = document.querySelector("#playerHP")
+playerDispayAtt = document.querySelector("#playerAtt")
+playerDisplayDef = document.querySelector("#playerDef")
+oppDisplayHP = document.querySelector("#enemyHP")
+oppDisplayAtt = document.querySelector("#enemyAtt")
+oppDisplayDef = document.querySelector("enemyDef")
 
 class NPC {
     constructor(hp, atk, def, race) {
@@ -91,17 +102,27 @@ class NPC {
 };
 
 const goblin = new NPC(16, 4, 0, "Goblin")
+goblin.img = "Images/goblin.png"
 const ogre = new NPC(25, 6, 4, "Ogre")
+ogre.img = "Images/ogre.png"
 const darkElf = new NPC(19, 5, 1, "Dark Elf")
+darkElf.img = "Images/darkElf.png"
 const skeleton = new NPC(14, 4, 6, "Undead")
+skeleton.img = "Images/Undead.png"
 skeleton.name = "Skeleton"
 const lich = new NPC(12, 4, 6, "Undead")
+lich.img = "Images/lich.png"
 lich.name = "Lich"
 const halfling = new NPC(18, 4, 0, "Halfling")
+halfling.img = "Images/halfling.png"
 const elf = new NPC(19, 5, 1, "Elf")
+elf.img = "Images/Elf.png"
 const orc = new NPC(25, 6, 4, "Orc")
+orc.img = "Images/Orc.png"
 const human = new NPC(20, 4, 2, "Human")
+human.img = "Images/human.png"
 const Bob = new NPC(30, 5, 4, "Human")
+Bob.img = "Images/8bitMan.png"
 Bob.name = "Bob, the Conqueror"
 
 
@@ -130,6 +151,11 @@ for (let i = 0; i < difficultySet.length; i++) {
         // create the players character based on race chosen
         // base stats 30hp 5att 4def 1speed
         createBob()
+        if (diff === "Easy") {
+            easyDiff()
+        } else if (diff === "Medium") {
+            medDiff()
+        }
     }
 }
 function createBob() {
@@ -340,7 +366,11 @@ function createBob() {
             Bob.speed++
         }
     }
+    playerDisplayHP.innerHTML += Bob.health
+    playerDispayAtt.innerHTML += Bob.attack
+    playerDisplayDef.innerHTML += Bob.defense
 }
+
 function easyDiff() {
     // run easy version of game 3 opponents
     while(enemy.length > 3) {
@@ -353,7 +383,8 @@ function medDiff() {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
-function hardDiff() {
-    // run hard version of game 9 opponents
+
+document.querySelector("#attack").onclick = function() {
+
 }
 // fight function
