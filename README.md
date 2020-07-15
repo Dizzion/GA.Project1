@@ -128,15 +128,15 @@ Withing the fight function there will be checking the amount of dmg that each co
 
 ### Example
 ```js
-if ((npc1.dodgeChance() === true) && (npc2.dodgeChance() === true))
+if ((npc1.speed === true) && (npc2.speed === true))
 {
     // attack at the same time
 }
-else if (npc1.dodgeChance() === true)
+else if (npc1.speed === true)
 {
     // npc1 attacks first
 }
-else if (npc2.dodgeChance() === true)
+else if (npc2.speed === true)
 {
     // npc2 attacks first
 }

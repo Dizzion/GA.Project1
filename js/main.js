@@ -17,7 +17,7 @@ playerDisplayDef = document.querySelector("#playerDef")
 oppDisplayHP = document.querySelector("#enemyHP")
 oppDisplayAtt = document.querySelector("#enemyAtt")
 oppDisplayDef = document.querySelector("#enemyDef")
-let timer = 0
+let time = 0
 let victoryCounter = 0
 
 
@@ -436,8 +436,77 @@ document.querySelector("#Fight").onclick = function() {
 // fight function
 function brawl(player, enemy) {
     // while loop the combat with a timer on each itteration of damage
-    // 3s intervals for damage to occur
-    // run damage every 3s
+    while((player.health != 0) && (enemy.health != 0)) {
+        // 3s intervals for damage to occur
+        // run damage every 3s
+        setTimeout(function(){
+            // speed is equal attack at same time
+            if (player.speed === enemy.speed) {
+                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                    // player dodged
+                    enemy.health -= player.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                    // enemy dodged
+                    player.health -= enemy.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                    // nether dodged
+                    [player.health, enemy.health] -= [enemy.dealDMG(), player.dealDMG()]
+                } else {
+                    // both dodged
+                }
+            // player faster than the enemy player attacks first 
+            } else if (player.speed > enemy.speed) {
+                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                    // player dodged
+                    enemy.health -= player.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                    // enemy dodged
+                    player.health -= enemy.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                    // nether dodged
+                    enemy.health -= player.dealDMG()
+                    if (enemy.health <= 0) {
+                        enemy.health = 0
+                    }
+                } else {
+                    // both dodged
+                }
+            // enemy faster than the player enemy attacks first
+            } else if (player.speed < enemy.speed) {
+                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                    // player dodged
+                    enemy.health -= player.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                    // enemy dodged
+                    player.health -= enemy.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                    // nether dodged
+                    player.health -= enemy.dealDMG()
+                    // enemy doesn't take damage if player dies
+                    if (player.health <= 0) {
+                        player.health = 0
+                    }
+                } else {
+                    // both dodged
+                }
+            // just incase attack at same time
+            } else {
+                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                    // player dodged
+                    enemy.health -= player.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                    // enemy dodged
+                    player.health -= enemy.dealDMG()
+                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                    // nether dodged
+                    [player.health, enemy.health] -= [enemy.dealDMG(), player.dealDMG()]
+                } else {
+                    // both dodged
+                }
+            }
+        })
+    }
+    
     // show dodged ove the character that dodged
     // end function on death of one combatant
     // change the vaues displayed each time damage occurs
