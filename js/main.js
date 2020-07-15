@@ -19,6 +19,8 @@ oppDisplayAtt = document.querySelector("#enemyAtt")
 oppDisplayDef = document.querySelector("#enemyDef")
 let time = 0
 let victoryCounter = 0
+let dodgeEnemy = false
+let dodgePlayer = false
 
 
 class NPC {
@@ -437,32 +439,35 @@ document.querySelector("#Fight").onclick = function() {
 function brawl(player, enemy) {
     // while loop the combat with a timer on each itteration of damage
     while((player.health != 0) && (enemy.health != 0)) {
+        // check dodge
+        dodgeEnemy = enemy.dodgeChance()
+        dodgePlayer = player.dodgeChance()
         // 3s intervals for damage to occur
         // run damage every 3s
-        setTimeout(function(){
+        setTimeout(() => {
             // speed is equal attack at same time
-            if (player.speed === enemy.speed) {
-                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+            if (player.speed == enemy.speed) {
+                if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
-                    setTimeout(function() {enemy.health -= player.dealDMG()}, 3000)
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                    enemy.health -= player.dealDMG()
+                } else if (dodgePlayer === false && dodgeEnemy === true) {
                     // enemy dodged
-                    setTimeout(function() {player.health -= enemy.dealDMG()}, 3000)
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                    player.health -= enemy.dealDMG()
+                } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
-                    [player.health, enemy.health] -= [enemy.dealDMG(), player.dealDMG()]
+                    [player.health, enemy.health] = [player.health - enemy.dealDMG(), enemy.health - player.dealDMG()]
                 } else {
                     // both dodged
                 }
             // player faster than the enemy player attacks first 
             } else if (player.speed > enemy.speed) {
-                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
                     enemy.health -= player.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                } else if (dodgePlayer === false && dodgeEnemy === true) {
                     // enemy dodged
                     player.health -= enemy.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
                     enemy.health -= player.dealDMG()
                     if (enemy.health <= 0) {
@@ -473,13 +478,13 @@ function brawl(player, enemy) {
                 }
             // enemy faster than the player enemy attacks first
             } else if (player.speed < enemy.speed) {
-                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                if(dodgePlayer == true && dodgeEnemy == false){
                     // player dodged
                     enemy.health -= player.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                } else if (dodgePlayer == false && dodgeEnemy == true) {
                     // enemy dodged
                     player.health -= enemy.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                } else if (dodgePlayer == false && dodgeEnemy == false) {
                     // nether dodged
                     player.health -= enemy.dealDMG()
                     // enemy doesn't take damage if player dies
@@ -491,15 +496,15 @@ function brawl(player, enemy) {
                 }
             // just incase attack at same time
             } else {
-                if(player.dodgeChance() === true && enemy.dodgeChance() === false){
+                if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
                     enemy.health -= player.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
+                } else if (dodgePlayer === false && dodgeEnemy === true) {
                     // enemy dodged
                     player.health -= enemy.dealDMG()
-                } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
+                } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
-                    [player.health, enemy.health] -= [enemy.dealDMG(), player.dealDMG()]
+                    [player.health, enemy.health] = [player.health - enemy.dealDMG(), enemy.health - player.dealDMG()]
                 } else {
                     // both dodged
                 }
