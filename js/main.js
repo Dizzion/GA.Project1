@@ -17,6 +17,9 @@ playerDisplayDef = document.querySelector("#playerDef")
 oppDisplayHP = document.querySelector("#enemyHP")
 oppDisplayAtt = document.querySelector("#enemyAtt")
 oppDisplayDef = document.querySelector("#enemyDef")
+let timer = 0
+let victoryCounter = 0
+
 
 class NPC {
     constructor(hp, atk, def, race) {
