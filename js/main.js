@@ -16,7 +16,7 @@ playerDispayAtt = document.querySelector("#playerAtt")
 playerDisplayDef = document.querySelector("#playerDef")
 oppDisplayHP = document.querySelector("#enemyHP")
 oppDisplayAtt = document.querySelector("#enemyAtt")
-oppDisplayDef = document.querySelector("enemyDef")
+oppDisplayDef = document.querySelector("#enemyDef")
 
 class NPC {
     constructor(hp, atk, def, race) {
@@ -416,5 +416,14 @@ document.querySelector("#heal").onclick = function() {
     for (let i = 0; i < victoryBonus.length; i++) {
         victoryBonus[i].disabled = true;
     }
+}
+
+document.querySelector("#Fight").onclick = function() {
+    let en = Math.floor(Math.random() * enemy.length)
+    document.querySelector(".enemy").src = enemy[en].img
+    oppDisplayHP.innerHTML = ("Health: " + enemy[en].health)
+    oppDisplayAtt.innerHTML = ("Attack: " + enemy[en].attack)
+    oppDisplayDef.innerHTML = ("Defense: " + enemy[en].defense)
+    
 }
 // fight function
