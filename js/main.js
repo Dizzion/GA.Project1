@@ -430,8 +430,8 @@ document.querySelector("#Fight").onclick = function() {
     oppDisplayAtt.innerHTML = ("Attack: " + enemy[en].attack)
     oppDisplayDef.innerHTML = ("Defense: " + enemy[en].defense)
     document.querySelector("#Fight").disabled = true
-    // brawl(Bob, enemy[en])
-    // enemy.splice(en)
+    brawl(Bob, enemy[en])
+    enemy.splice(en)
 }
 // fight function
 function brawl(player, enemy) {
@@ -444,10 +444,10 @@ function brawl(player, enemy) {
             if (player.speed === enemy.speed) {
                 if(player.dodgeChance() === true && enemy.dodgeChance() === false){
                     // player dodged
-                    enemy.health -= player.dealDMG()
+                    setTimeout(function() {enemy.health -= player.dealDMG()}, 3000)
                 } else if (player.dodgeChance() === false && enemy.dodgeChance() === true) {
                     // enemy dodged
-                    player.health -= enemy.dealDMG()
+                    setTimeout(function() {player.health -= enemy.dealDMG()}, 3000)
                 } else if (player.dodgeChance() === false && enemy.dodgeChance() === false) {
                     // nether dodged
                     [player.health, enemy.health] -= [enemy.dealDMG(), player.dealDMG()]
@@ -504,10 +504,16 @@ function brawl(player, enemy) {
                     // both dodged
                 }
             }
-        })
+            if(player.health <= 0) {
+                player.health = 0
+            }
+            if(enemy.health <= 0) {
+                enemy.health = 0
+            }
+            playerDisplayHP.innerHTML = ("Health: " + player.health)
+            oppDisplayHP.innerHTML = ("Health: " + enemy.health)
+        }, 3000)
     }
-    
-    // show dodged ove the character that dodged
     // end function on death of one combatant
     // change the vaues displayed each time damage occurs
     // add to victory counter at end and enable buttons
