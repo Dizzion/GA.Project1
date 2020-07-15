@@ -89,16 +89,17 @@ class NPC {
             }
         }
     }
-    // deathCheck() {
-    //     // check if this.life == true or false at the end of the fight function
-    //     // if dead shift this combatant out of the enemy array
-    // }
-    // dmgTaken(num) {
-    //     // minus the damage taken from the objects HP
-    // }
-    // dealDMG() {
-    //     // calculate the damage this combatant will do
-    // }
+    deathCheck() {
+        // check if this.life == true or false at the end of the fight function
+        // if dead shift this combatant out of the enemy array
+        if (this.health === 0) {
+            this.life = false
+        }
+    }
+    dealDMG() {
+        // calculate the damage this combatant will do
+        return Math.round(Math.random() * 3) + this.attack
+    }
 };
 
 const goblin = new NPC(16, 4, 0, "Goblin")
@@ -371,30 +372,31 @@ function createBob() {
     playerDisplayDef.innerHTML += Bob.defense
     Bob.maxHP = Bob.health
 }
-
+// set to easy difficulty
 function easyDiff() {
     // run easy version of game 3 opponents
     while(enemy.length > 3) {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
+// set medium difficulty
 function medDiff() {
     // run medium version of game 6 opponents
     while(enemy.length > 6) {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
-
+// attack up button click functionality
 document.querySelector("#attack").onclick = function() {
     Bob.attack++
     playerDispayAtt.innerHTML = ("Attack: " + Bob.attack)
     AttUP[attPlus].style.opacity = "100"
     attPlus++
     for (let i = 0; i < victoryBonus.length; i++) {
-        victoryBonus[i].disabled = true;
+        victoryBonus[i].disabled = true
     }
 }
-
+// defense up button click functionality
 document.querySelector("#defense").onclick = function() {
     Bob.defense++
     Bob.maxHP++
@@ -404,26 +406,37 @@ document.querySelector("#defense").onclick = function() {
     DefUP[defPlus].style.opacity = "100"
     defPlus++
     for (let i = 0; i < victoryBonus.length; i++) {
-        victoryBonus[i].disabled = true;
+        victoryBonus[i].disabled = true
     }
 }
-
+// heal button click functionality
 document.querySelector("#heal").onclick = function() {
     Bob.health = Bob.maxHP
     playerDisplayHP.innerHTML = ("Health: " + Bob.health)
     document.querySelectorAll(".heal")[healCount].style.opacity = "0"
     healCount++
     for (let i = 0; i < victoryBonus.length; i++) {
-        victoryBonus[i].disabled = true;
+        victoryBonus[i].disabled = true
     }
 }
-
+// fight button click functionality
 document.querySelector("#Fight").onclick = function() {
     let en = Math.floor(Math.random() * enemy.length)
     document.querySelector(".enemy").src = enemy[en].img
     oppDisplayHP.innerHTML = ("Health: " + enemy[en].health)
     oppDisplayAtt.innerHTML = ("Attack: " + enemy[en].attack)
     oppDisplayDef.innerHTML = ("Defense: " + enemy[en].defense)
-    
+    document.querySelector("#Fight").disabled = true
+    // brawl(Bob, enemy[en])
+    // enemy.splice(en)
 }
 // fight function
+function brawl(player, enemy) {
+    // while loop the combat with a timer on each itteration of damage
+    // 3s intervals for damage to occur
+    // run damage every 3s
+    // show dodged ove the character that dodged
+    // end function on death of one combatant
+    // change the vaues displayed each time damage occurs
+    // add to victory counter at end and enable buttons
+}
