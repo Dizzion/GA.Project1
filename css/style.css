@@ -7,10 +7,6 @@ html {
     background-size: cover;
 }
 
-body {
-    height: 400px;
-}
-
 form {
     font-size: 24px;
 }
@@ -85,15 +81,7 @@ h1 {
     border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
 }
-
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1;}
-}
-
 
 #Easy {
     background-color: #4caf50;
@@ -149,19 +137,19 @@ h1 {
 .Attack {
     position: absolute;
     bottom: -15px;
-    left: -10px;
+    left: -15px;
 }
 
 .Health {
     position: absolute;
-    top: -4px;
-    left: 32px;
+    top: -6px;
+    left: 20px;
 }
 
 .Defense {
     position: absolute;
     bottom: -15px;
-    right: 20px;
+    right: 10px;
 }
 
 .buttons {
@@ -177,31 +165,30 @@ h1 {
     display: inline-block;
     position: fixed;
     justify-content: left;
-    top: 550px;
+    top: 55%;
 }
 
 #Fight {
     position: fixed;
-    flex-grow: .5;
     padding: 15px 32px;
     border: none;
     background-color: red;
     color: white;
-    font-size: 45px;
+    font-size: 35px;
     border-radius: 8px;
-    width: 50%;
-    top: 800px;
+    width: 30%;
+    top: 85%;
 } 
 
 .bonus {
-    padding: 15px 41px;
+    padding: 15px 21px;
     border: none;
     color: white;
     font-size: 25px;
 }
 
 #attack {
-    padding: 15px 53px;
+    padding: 15px 33px;
     background-color: maroon;
     border-radius: 8px;
 }
@@ -212,24 +199,24 @@ h1 {
 }
 
 #heal {
-    padding: 15px 81px;
+    padding: 15px 61px;
     background-color: mediumspringgreen;
     border-radius: 8px;
 }
 
 .AttUP {
     position: relative;
-    height: 50px;
+    height: 30px;
     top: 15px;
-    opacity: 0;
+    opacity: 100;
 }
 
 .DefUP {
     position: relative;
-    height: 50px;
-    width: 65px;
-    top: 15px;
-    opacity: 0;
+    height: auto;
+    width: 35px;
+    top: 5px;
+    opacity: 100;
 }
 
 .resetPage {
@@ -268,7 +255,7 @@ h1 {
 .VS {
     position: fixed;
     left: 44%;
-    top: 260px;
+    top: 20%;
     font-size: 100px;
 }
 
@@ -278,4 +265,17 @@ h1 {
     align-items: left;
     left: 75%;
     top: -223px;
+}
+
+.enemy {
+    max-width: 150px;
+    max-height: auto;
+}
+
+.player {
+    max-width: 150px;
+}
+
+.heal {
+    max-width: 60px;
 }
