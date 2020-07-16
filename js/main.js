@@ -651,7 +651,7 @@ function endGame() {
         // pop up modal with trophy.png
         // change text on Modal to refect beating hard reset game on button press
         document.querySelector(".endH").innerHTML = "Hard Victory!"
-        document.querySelector(".endP").innerHTML = "You have cleared the Hard Difficulty!<br>Reset the Game and try and different race."
+        document.querySelector(".endP").innerHTML = "You have cleared the Hard Difficulty!<br>Reset the Game and try a different race."
     } else {
         deathSound.play()
         // pop up modal and death.png
