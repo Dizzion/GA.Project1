@@ -446,6 +446,7 @@ document.querySelector("#Fight").onclick = function () {
     oppDisplayHP.innerHTML = ("Health: " + enemy[en].health)
     oppDisplayAtt.innerHTML = ("Attack: " + enemy[en].attack)
     oppDisplayDef.innerHTML = ("Defense: " + enemy[en].defense)
+    document.querySelector(".oppName").innerHTML = "The " + enemy[en].name
     document.querySelector("#Fight").disabled = true
     brawl(Bob, enemy[en])
     enemy.splice(en, 1)

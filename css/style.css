@@ -177,13 +177,16 @@ h1 {
     display: flex;
     position: relative;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: -60px;
 }
 
 .victory {
     display: inline-block;
     position: relative;
     justify-content: left;
-    top: 100px;
+    top: 80px;
 }
 
 #Fight {
@@ -194,6 +197,7 @@ h1 {
     color: white;
     font-size: 45px;
     border-radius: 8px;
+    width: 70%;
 } 
 
 .bonus {
@@ -253,4 +257,27 @@ h1 {
 
 .endImg {
     padding: 25px;
+}
+
+.declareOpp {
+    display: flex;
+    color: darkslategray;
+    justify-content: center;
+}
+
+.Bob {
+    position: fixed;
+    left: 295px;
+    top: 800px;
+}
+
+.VS {
+    position: fixed;
+    top: 800px;
+}
+
+.oppName {
+    position: fixed;
+    top: 800px;
+    left: 1100px;
 }
