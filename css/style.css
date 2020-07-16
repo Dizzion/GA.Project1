@@ -208,7 +208,7 @@ h1 {
     position: relative;
     height: 30px;
     top: 15px;
-    opacity: 100;
+    opacity: 0;
 }
 
 .DefUP {
@@ -216,7 +216,7 @@ h1 {
     height: auto;
     width: 35px;
     top: 5px;
-    opacity: 100;
+    opacity: 0;
 }
 
 .resetPage {
