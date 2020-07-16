@@ -35,15 +35,15 @@ class NPC {
     }
     changeSpeed() {
         // Elf and Dark Elf speed stat
-        if(this.race == "Elf" || this.race == "Dark Elf") {
+        if (this.race == "Elf" || this.race == "Dark Elf") {
             this.speed = 1
         }
         // Orc, Ogre and Undead speed stat
-        else if(this.race == "Orc" || this.race == "Ogre" || this.race == "Undead") {
+        else if (this.race == "Orc" || this.race == "Ogre" || this.race == "Undead") {
             this.speed = -3
         }
         // Halfling and Goblin speed stat
-        else if(this.race == "Halfling" || this.race == "Goblin") {
+        else if (this.race == "Halfling" || this.race == "Goblin") {
             this.speed = 2
         }
         // Any other Race speedstat
@@ -54,9 +54,9 @@ class NPC {
     // dodge chance function
     dodgeChance() {
         // Elf and Dark Elf dodgeChance()
-        if(this.race == "Elf" || this.race == "Dark Elf") {
+        if (this.race == "Elf" || this.race == "Dark Elf") {
             //  50% chance to dodge
-            if(Math.ceil(Math.random() * 100) > 50) {
+            if (Math.ceil(Math.random() * 100) > 50) {
                 return true
             }
             else {
@@ -64,9 +64,9 @@ class NPC {
             }
         }
         // Orc, Ogre and Undead dodgeChance()
-        else if(this.race == "Orc" || this.race == "Ogre" || this.race == "Undead") {
+        else if (this.race == "Orc" || this.race == "Ogre" || this.race == "Undead") {
             //  15% chance to dodge
-            if(Math.floor(Math.random() * 100) > 85) {
+            if (Math.floor(Math.random() * 100) > 85) {
                 return true
             }
             else {
@@ -74,9 +74,9 @@ class NPC {
             }
         }
         // Halfling and Goblin dodgeChance()
-        else if(this.race == "Halfling" || this.race == "Goblin") {
+        else if (this.race == "Halfling" || this.race == "Goblin") {
             //  65% Chance to dodge
-            if(Math.ceil(Math.random() * 100) > 35) {
+            if (Math.ceil(Math.random() * 100) > 35) {
                 return true
             }
             else {
@@ -86,7 +86,7 @@ class NPC {
         // Any other Race dodgeChance()
         else {
             //  35% Chance to dodge
-            if(Math.ceil(Math.random() * 100) > 65) {
+            if (Math.ceil(Math.random() * 100) > 65) {
                 return true
             }
             else {
@@ -127,7 +127,7 @@ const orc = new NPC(25, 6, 4, "Orc")
 orc.img = "Images/Orc.png"
 const human = new NPC(20, 4, 2, "Human")
 human.img = "Images/human.png"
-const Bob = new NPC(30, 5, 4, "Human")
+const Bob = new NPC(40, 7, 5, "Human")
 Bob.img = "Images/8bitMan.png"
 Bob.name = "Bob, the Conqueror"
 
@@ -145,13 +145,13 @@ window.onload = function () {
     }
 }
 
-raceInput.onclick = function() {
+raceInput.onclick = function () {
     playerRace = raceSelect.options[raceSelect.selectedIndex].innerText
     raceSelect.disabled = true
 }
 
 for (let i = 0; i < difficultySet.length; i++) {
-    difficultySet[i].onclick = function() {
+    difficultySet[i].onclick = function () {
         diff = difficultySet[i].value
         modal.style.display = "none"
         // create the players character based on race chosen
@@ -170,134 +170,134 @@ function createBob() {
         let randoRa = Math.ceil(Math.random() * 8)
         if (randoRa === 1) {
             playerRace = "Human"
-            // const Bob = new NPC(30, 5, 4, playerRace)
+            // const Bob = new NPC(40, 7, 5, playerRace)
             Bob.changeSpeed()
             Bob.speed += 1
         } else if (randoRa === 2) {
             playerRace = "Halfling"
-            // const Bob = new NPC(24, 5, 2, playerRace)
-            Bob.health = 24
-            Bob.defense = 2
+            // const Bob = new NPC(32, 7, 3, playerRace)
+            Bob.health = 32
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 3) {
             playerRace = "Goblin"
-            // const Bob = new NPC(24, 5, 2, playerRace)
-            Bob.health = 24
-            Bob.defense = 2
+            // const Bob = new NPC(32, 7, 3, playerRace)
+            Bob.health = 32
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 4) {
             playerRace = "Elf"
-            // const Bob = new NPC(26, 6, 2, playerRace)
-            Bob.health = 26
-            Bob.attack = 6
-            Bob.defense = 2
+            // const Bob = new NPC(38, 8, 3, playerRace)
+            Bob.health = 38
+            Bob.attack = 8
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 5) {
             playerRace = "Dark Elf"
-            // const Bob = new NPC(26, 6, 2, playerRace)
-            Bob.health = 26
-            Bob.attack = 6
-            Bob.defense = 2
+            // const Bob = new NPC(38, 8, 3, playerRace)
+            Bob.health = 38
+            Bob.attack = 8
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 6) {
             playerRace = "Orc"
-            // const Bob = new NPC(32, 7, 6, playerRace)
-            Bob.health = 32
-            Bob.attack = 7
-            Bob.defense = 6
+            // const Bob = new NPC(44, 9, 7, playerRace)
+            Bob.health = 44
+            Bob.attack = 9
+            Bob.defense = 7
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 7) {
             playerRace = "Ogre"
-            // const Bob = new NPC(32, 7, 6, playerRace)
-            Bob.health = 32
-            Bob.attack = 7
-            Bob.defense = 6
+            // const Bob = new NPC(44, 9, 7, playerRace)
+            Bob.health = 44
+            Bob.attack = 9
+            Bob.defense = 7
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else {
             playerRace = "Undead"
-            // const Bob = new NPC(28, 5, 8, playerRace)
+            // const Bob = new NPC(35, 6, 10, playerRace)
             Bob.health = 28
-            Bob.attack = 5
-            Bob.defense = 8
+            Bob.attack = 6
+            Bob.defense = 10
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         }
     } else if (playerRace == "Halfling") {
         // make the player a halfling
-        // const Bob = new NPC(24, 5, 2, playerRace)
-        Bob.health = 24
-        Bob.defense = 2
+        // const Bob = new NPC(32, 7, 3, playerRace)
+        Bob.health = 32
+        Bob.defense = 3
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
     } else if (playerRace == "Goblin") {
         // make the player a goblin
-        // const Bob = new NPC(24, 5, 2, playerRace)
-        Bob.health = 24
-        Bob.defense = 2
+        // const Bob = new NPC(32, 7, 3, playerRace)
+        Bob.health = 32
+        Bob.defense = 3
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
     } else if (playerRace == "Elf") {
         // make the player an elf
-        // const Bob = new NPC(26, 6, 2, playerRace)
-        Bob.health = 26
-            Bob.attack = 6
-            Bob.defense = 2
-            Bob.race = playerRace
-            Bob.changeSpeed()
-            Bob.speed++
+        // const Bob = new NPC(38, 8, 3, playerRace)
+        Bob.health = 38
+        Bob.attack = 8
+        Bob.defense = 3
+        Bob.race = playerRace
+        Bob.changeSpeed()
+        Bob.speed++
     } else if (playerRace == "Dark Elf") {
         // make the player a dark elf
-        // const Bob = new NPC(26, 6, 2, playerRace)
-        Bob.health = 26
-        Bob.attack = 6
-        Bob.defense = 2
+        // const Bob = new NPC(38, 8, 3, playerRace)
+        Bob.health = 38
+        Bob.attack = 8
+        Bob.defense = 3
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
     } else if (playerRace == "Human") {
         // make the player human
-        // const Bob = new NPC(30, 5, 4, playerRace)
+        // const Bob = new NPC(40, 7, 5, playerRace)
         Bob.changeSpeed()
         Bob.speed += 1
     } else if (playerRace == "Orc") {
         // make the player orc
-        // const Bob = new NPC(32, 7, 6, playerRace)
-        Bob.health = 32
-        Bob.attack = 7
-        Bob.defense = 6
+        // const Bob = new NPC(44, 9, 7, playerRace)
+        Bob.health = 44
+        Bob.attack = 9
+        Bob.defense = 7
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
     } else if (playerRace == "Ogre") {
         // make the player an ogre
-        // const Bob = new NPC(32, 7, 6, playerRace)
-        Bob.health = 32
-        Bob.attack = 7
-        Bob.defense = 6
+        // const Bob = new NPC(44, 9, 7, playerRace)
+        Bob.health = 44
+        Bob.attack = 9
+        Bob.defense = 7
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
     } else if (playerRace == "Undead") {
         // make the player undead
-        // const Bob = new NPC(28, 5, 8, playerRace)
+        // const Bob = new NPC(35, 6, 10, playerRace)
         Bob.health = 28
-        Bob.attack = 5
-        Bob.defense = 8
+        Bob.attack = 6
+        Bob.defense = 10
         Bob.race = playerRace
         Bob.changeSpeed()
         Bob.speed++
@@ -306,67 +306,67 @@ function createBob() {
         let randoRa = Math.ceil(Math.random() * 8)
         if (randoRa === 1) {
             playerRace = "Human"
-            // const Bob = new NPC(30, 5, 4, playerRace)
+            // const Bob = new NPC(40, 7, 5, playerRace)
             Bob.changeSpeed()
             Bob.speed += 1
         } else if (randoRa === 2) {
             playerRace = "Halfling"
-            // const Bob = new NPC(24, 5, 2, playerRace)
-            Bob.health = 24
-            Bob.defense = 2
+            // const Bob = new NPC(32, 7, 3, playerRace)
+            Bob.health = 32
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 3) {
             playerRace = "Goblin"
-            // const Bob = new NPC(24, 5, 2, playerRace)
-            Bob.health = 24
-            Bob.defense = 2
+            // const Bob = new NPC(32, 7, 3, playerRace)
+            Bob.health = 32
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 4) {
             playerRace = "Elf"
-            // const Bob = new NPC(26, 6, 2, playerRace)
-            Bob.health = 26
-            Bob.attack = 6
-            Bob.defense = 2
+            // const Bob = new NPC(38, 8, 3, playerRace)
+            Bob.health = 38
+            Bob.attack = 8
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 5) {
             playerRace = "Dark Elf"
-            // const Bob = new NPC(26, 6, 2, playerRace)
-            Bob.health = 26
-            Bob.attack = 6
-            Bob.defense = 2
+            // const Bob = new NPC(38, 8, 3, playerRace)
+            Bob.health = 38
+            Bob.attack = 8
+            Bob.defense = 3
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 6) {
             playerRace = "Orc"
-            // const Bob = new NPC(32, 7, 6, playerRace)
-            Bob.health = 32
-            Bob.attack = 7
-            Bob.defense = 6
+            // const Bob = new NPC(44, 9, 7, playerRace)
+            Bob.health = 44
+            Bob.attack = 9
+            Bob.defense = 7
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else if (randoRa === 7) {
             playerRace = "Ogre"
-            // const Bob = new NPC(32, 7, 6, playerRace)
-            Bob.health = 32
-            Bob.attack = 7
-            Bob.defense = 6
+            // const Bob = new NPC(44, 9, 7, playerRace)
+            Bob.health = 44
+            Bob.attack = 9
+            Bob.defense = 7
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
         } else {
             playerRace = "Undead"
-            // const Bob = new NPC(28, 5, 8, playerRace)
+            // const Bob = new NPC(35, 6, 10, playerRace)
             Bob.health = 28
-            Bob.attack = 5
-            Bob.defense = 8
+            Bob.attack = 6
+            Bob.defense = 10
             Bob.race = playerRace
             Bob.changeSpeed()
             Bob.speed++
@@ -380,19 +380,19 @@ function createBob() {
 // set to easy difficulty
 function easyDiff() {
     // run easy version of game 3 opponents
-    while(enemy.length > 3) {
+    while (enemy.length > 3) {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
 // set medium difficulty
 function medDiff() {
     // run medium version of game 6 opponents
-    while(enemy.length > 6) {
+    while (enemy.length > 6) {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
 // attack up button click functionality
-document.querySelector("#attack").onclick = function() {
+document.querySelector("#attack").onclick = function () {
     Bob.attack++
     playerDispayAtt.innerHTML = ("Attack: " + Bob.attack)
     AttUP[attPlus].style.opacity = "100"
@@ -400,9 +400,10 @@ document.querySelector("#attack").onclick = function() {
     for (let i = 0; i < victoryBonus.length; i++) {
         victoryBonus[i].disabled = true
     }
+    document.querySelector("#Fight").disabled = false
 }
 // defense up button click functionality
-document.querySelector("#defense").onclick = function() {
+document.querySelector("#defense").onclick = function () {
     Bob.defense++
     Bob.maxHP++
     Bob.health++
@@ -413,9 +414,10 @@ document.querySelector("#defense").onclick = function() {
     for (let i = 0; i < victoryBonus.length; i++) {
         victoryBonus[i].disabled = true
     }
+    document.querySelector("#Fight").disabled = false
 }
 // heal button click functionality
-document.querySelector("#heal").onclick = function() {
+document.querySelector("#heal").onclick = function () {
     Bob.health = Bob.maxHP
     playerDisplayHP.innerHTML = ("Health: " + Bob.health)
     document.querySelectorAll(".heal")[healCount].style.opacity = "0"
@@ -423,9 +425,10 @@ document.querySelector("#heal").onclick = function() {
     for (let i = 0; i < victoryBonus.length; i++) {
         victoryBonus[i].disabled = true
     }
+    document.querySelector("#Fight").disabled = false
 }
 // fight button click functionality
-document.querySelector("#Fight").onclick = function() {
+document.querySelector("#Fight").onclick = function () {
     let en = Math.floor(Math.random() * enemy.length)
     document.querySelector(".enemy").src = enemy[en].img
     oppDisplayHP.innerHTML = ("Health: " + enemy[en].health)
@@ -433,12 +436,12 @@ document.querySelector("#Fight").onclick = function() {
     oppDisplayDef.innerHTML = ("Defense: " + enemy[en].defense)
     document.querySelector("#Fight").disabled = true
     brawl(Bob, enemy[en])
-    enemy.splice(en)
-    if(Bob.life === false) {
+    enemy.splice(en, 1)
+    if (Bob.life === false) {
         // endGame()
     } else {
         victoryCounter++
-        if(Bob.health < (Bob.maxHP - 5)) {
+        if (Bob.health < (Bob.maxHP - 5)) {
             Bob.health += 2
         }
         if (healCount == 2) {
@@ -452,90 +455,126 @@ document.querySelector("#Fight").onclick = function() {
         }
     }
 }
-// fight function
+// brawl function
 function brawl(player, opponent) {
     // while loop the combat with a timer on each itteration of damage
-    while((player.health != 0) && (opponent.health != 0)) {
+    while ((player.health != 0) && (opponent.health != 0)) {
         // check dodge
         dodgeEnemy = opponent.dodgeChance()
         dodgePlayer = player.dodgeChance()
         // 3s intervals for damage to occur
         // run damage every 3s
-        setTimeout(() => {
-            // speed is equal attack at same time
-            if (player.speed == opponent.speed) {
-                if(dodgePlayer === true && dodgeEnemy === false){
-                    // player dodged
-                    opponent.health -= player.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // opponent dodged
-                    player.health -= opponent.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === false) {
-                    // nether dodged
-                    [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
-                } else {
-                    // both dodged
-                }
-            // player faster than the opponent player attacks first 
-            } else if (player.speed > opponent.speed) {
-                if(dodgePlayer === true && dodgeEnemy === false){
-                    // player dodged
-                    opponent.health -= player.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // opponent dodged
-                    player.health -= opponent.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === false) {
-                    // nether dodged
-                    opponent.health -= player.dealDMG()
-                    if (opponent.health <= 0) {
-                        opponent.health = 0
-                    }
-                } else {
-                    // both dodged
-                }
-            // opponent faster than the player opponent attacks first
-            } else if (player.speed < opponent.speed) {
-                if(dodgePlayer == true && dodgeEnemy == false){
-                    // player dodged
-                    opponent.health -= player.dealDMG()
-                } else if (dodgePlayer == false && dodgeEnemy == true) {
-                    // opponent dodged
-                    player.health -= opponent.dealDMG()
-                } else if (dodgePlayer == false && dodgeEnemy == false) {
-                    // nether dodged
-                    player.health -= opponent.dealDMG()
-                    // opponent doesn't take damage if player dies
-                    if (player.health <= 0) {
-                        player.health = 0
-                    }
-                } else {
-                    // both dodged
-                }
-            // just incase attack at same time
+        // speed is equal attack at same time
+        if (player.speed == opponent.speed) {
+            if (dodgePlayer === true && dodgeEnemy === false) {
+                // player dodged
+                // setTimeout(() => {
+                opponent.health -= player.dealDMG()
+                // }, 3000) 
+            } else if (dodgePlayer === false && dodgeEnemy === true) {
+                // opponent dodged
+                // setTimeout(() => {
+                player.health -= opponent.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer === false && dodgeEnemy === false) {
+                // nether dodged
+                // setTimeout(() => {
+                [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
+                // }, 3000)
             } else {
-                if(dodgePlayer === true && dodgeEnemy === false){
-                    // player dodged
-                    opponent.health -= player.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // opponent dodged
-                    player.health -= opponent.dealDMG()
-                } else if (dodgePlayer === false && dodgeEnemy === false) {
-                    // nether dodged
-                    [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
-                } else {
-                    // both dodged
+                // both dodged
+            }
+            // player faster than the opponent player attacks first 
+        } else if (player.speed > opponent.speed) {
+            if (dodgePlayer === true && dodgeEnemy === false) {
+                // player dodged
+                // setTimeout(() => {
+                opponent.health -= player.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer === false && dodgeEnemy === true) {
+                // opponent dodged
+                // setTimeout(() => {
+                player.health -= opponent.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer === false && dodgeEnemy === false) {
+                // nether dodged
+                // setTimeout(() => {
+                opponent.health -= player.dealDMG()
+                player.health -= opponent.dealDMG()
+                // }, 3000)
+                if (opponent.health <= 0) {
+                    opponent.health = 0
                 }
+            } else {
+                // both dodged
             }
-            if(player.health <= 0) {
-                player.health = 0
-                player.life = false
+            // opponent faster than the player opponent attacks first
+        } else if (player.speed < opponent.speed) {
+            if (dodgePlayer == true && dodgeEnemy == false) {
+                // player dodged
+                // setTimeout(() => {
+                opponent.health -= player.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer == false && dodgeEnemy == true) {
+                // opponent dodged
+                // setTimeout(() => {
+                player.health -= opponent.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer == false && dodgeEnemy == false) {
+                // nether dodged
+                // setTimeout(() => {
+                player.health -= opponent.dealDMG()
+                opponent.health -= player.dealDMG()
+                // }, 3000)
+                // opponent doesn't take damage if player dies
+                if (player.health <= 0) {
+                    player.health = 0
+                }
+            } else {
+                // both dodged
             }
-            if(opponent.health <= 0) {
-                opponent.health = 0
-                opponent.life = false
+            // just incase attack at same time
+        } else {
+            if (dodgePlayer === true && dodgeEnemy === false) {
+                // player dodged
+                // setTimeout(() => {
+                opponent.health -= player.dealDMG()
+                // }, 3000) 
+            } else if (dodgePlayer === false && dodgeEnemy === true) {
+                // opponent dodged
+                // setTimeout(() => {
+                player.health -= opponent.dealDMG()
+                // }, 3000)
+            } else if (dodgePlayer === false && dodgeEnemy === false) {
+                // nether dodged
+                // setTimeout(() => {
+                [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
+                // }, 3000)
+            } else {
+                // both dodged
             }
-            playerDisplayHP.innerHTML = ("Health: " + player.health)
-            oppDisplayHP.innerHTML = ("Health: " + opponent.health)
-        }, 3000)
+        }
+        if (player.health <= 0) {
+            player.health = 0
+            player.life = false
+        }
+        if (opponent.health <= 0) {
+            opponent.health = 0
+            opponent.life = false
+        }
+        playerDisplayHP.innerHTML = ("Health: " + player.health)
+        oppDisplayHP.innerHTML = ("Health: " + opponent.health)
     }
+    if (diff === "Hard") {
+        player.health += 2
+    } else if (diff === "Medium") {
+        player.health++
+    }
+}
+
+// end of the game function
+function endGame() {
+    // check if victories == 3, 6, 9 based on difficulty
+    // pull footer Modal with vitory statement and a 8-bit trophy art
+    // 
 }
