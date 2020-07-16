@@ -21,6 +21,7 @@ let time = 0
 let victoryCounter = 0
 let dodgeEnemy = false
 let dodgePlayer = false
+const battleSound = new Audio("media/swords.mp3")
 
 
 class NPC {
@@ -149,6 +150,8 @@ raceInput.onclick = function () {
     playerRace = raceSelect.options[raceSelect.selectedIndex].innerText
     raceSelect.disabled = true
 }
+
+
 
 for (let i = 0; i < difficultySet.length; i++) {
     difficultySet[i].onclick = function () {
@@ -500,6 +503,7 @@ document.querySelector("#Fight").onclick = function () {
 // brawl function
 function brawl(player, opponent) {
     // while loop the combat with a timer on each itteration of damage
+    battleSound.play()
     while ((player.health != 0) && (opponent.health != 0)) {
         // check dodge
         dodgeEnemy = opponent.dodgeChance()
