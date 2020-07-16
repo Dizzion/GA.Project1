@@ -434,60 +434,77 @@ document.querySelector("#Fight").onclick = function() {
     document.querySelector("#Fight").disabled = true
     brawl(Bob, enemy[en])
     enemy.splice(en)
+    if(Bob.life === false) {
+        // endGame()
+    } else {
+        victoryCounter++
+        if(Bob.health < (Bob.maxHP - 5)) {
+            Bob.health += 2
+        }
+        if (healCount == 2) {
+            for (let i = 0; i < (victoryBonus.length - 1); i++) {
+                victoryBonus[i].disabled = false
+            }
+        } else {
+            for (let i = 0; i < victoryBonus.length; i++) {
+                victoryBonus[i].disabled = false
+            }
+        }
+    }
 }
 // fight function
-function brawl(player, enemy) {
+function brawl(player, opponent) {
     // while loop the combat with a timer on each itteration of damage
-    while((player.health != 0) && (enemy.health != 0)) {
+    while((player.health != 0) && (opponent.health != 0)) {
         // check dodge
-        dodgeEnemy = enemy.dodgeChance()
+        dodgeEnemy = opponent.dodgeChance()
         dodgePlayer = player.dodgeChance()
         // 3s intervals for damage to occur
         // run damage every 3s
         setTimeout(() => {
             // speed is equal attack at same time
-            if (player.speed == enemy.speed) {
+            if (player.speed == opponent.speed) {
                 if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
-                    enemy.health -= player.dealDMG()
+                    opponent.health -= player.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // enemy dodged
-                    player.health -= enemy.dealDMG()
+                    // opponent dodged
+                    player.health -= opponent.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
-                    [player.health, enemy.health] = [player.health - enemy.dealDMG(), enemy.health - player.dealDMG()]
+                    [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
                 } else {
                     // both dodged
                 }
-            // player faster than the enemy player attacks first 
-            } else if (player.speed > enemy.speed) {
+            // player faster than the opponent player attacks first 
+            } else if (player.speed > opponent.speed) {
                 if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
-                    enemy.health -= player.dealDMG()
+                    opponent.health -= player.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // enemy dodged
-                    player.health -= enemy.dealDMG()
+                    // opponent dodged
+                    player.health -= opponent.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
-                    enemy.health -= player.dealDMG()
-                    if (enemy.health <= 0) {
-                        enemy.health = 0
+                    opponent.health -= player.dealDMG()
+                    if (opponent.health <= 0) {
+                        opponent.health = 0
                     }
                 } else {
                     // both dodged
                 }
-            // enemy faster than the player enemy attacks first
-            } else if (player.speed < enemy.speed) {
+            // opponent faster than the player opponent attacks first
+            } else if (player.speed < opponent.speed) {
                 if(dodgePlayer == true && dodgeEnemy == false){
                     // player dodged
-                    enemy.health -= player.dealDMG()
+                    opponent.health -= player.dealDMG()
                 } else if (dodgePlayer == false && dodgeEnemy == true) {
-                    // enemy dodged
-                    player.health -= enemy.dealDMG()
+                    // opponent dodged
+                    player.health -= opponent.dealDMG()
                 } else if (dodgePlayer == false && dodgeEnemy == false) {
                     // nether dodged
-                    player.health -= enemy.dealDMG()
-                    // enemy doesn't take damage if player dies
+                    player.health -= opponent.dealDMG()
+                    // opponent doesn't take damage if player dies
                     if (player.health <= 0) {
                         player.health = 0
                     }
@@ -498,28 +515,27 @@ function brawl(player, enemy) {
             } else {
                 if(dodgePlayer === true && dodgeEnemy === false){
                     // player dodged
-                    enemy.health -= player.dealDMG()
+                    opponent.health -= player.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === true) {
-                    // enemy dodged
-                    player.health -= enemy.dealDMG()
+                    // opponent dodged
+                    player.health -= opponent.dealDMG()
                 } else if (dodgePlayer === false && dodgeEnemy === false) {
                     // nether dodged
-                    [player.health, enemy.health] = [player.health - enemy.dealDMG(), enemy.health - player.dealDMG()]
+                    [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
                 } else {
                     // both dodged
                 }
             }
             if(player.health <= 0) {
                 player.health = 0
+                player.life = false
             }
-            if(enemy.health <= 0) {
-                enemy.health = 0
+            if(opponent.health <= 0) {
+                opponent.health = 0
+                opponent.life = false
             }
             playerDisplayHP.innerHTML = ("Health: " + player.health)
-            oppDisplayHP.innerHTML = ("Health: " + enemy.health)
+            oppDisplayHP.innerHTML = ("Health: " + opponent.health)
         }, 3000)
     }
-    // end function on death of one combatant
-    // change the vaues displayed each time damage occurs
-    // add to victory counter at end and enable buttons
 }
