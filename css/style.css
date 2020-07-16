@@ -145,7 +145,7 @@ h1 {
     position: relative;
     justify-content: space-around;
     align-items: center;
-    top: 100px;
+    top: 70px;
 }
 
 .container {
@@ -177,14 +177,13 @@ h1 {
     display: flex;
     position: relative;
     justify-content: center;
-    top: 100px;
 }
 
 .victory {
     display: inline-block;
     position: relative;
     justify-content: left;
-    top: 150px;
+    top: 100px;
 }
 
 #Fight {
