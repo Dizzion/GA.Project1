@@ -228,7 +228,7 @@ function createBob() {
         } else {
             playerRace = "Undead"
             // const Bob = new NPC(35, 6, 10, playerRace)
-            Bob.health = 28
+            Bob.health = 35
             Bob.attack = 6
             Bob.defense = 10
             Bob.race = playerRace
@@ -295,7 +295,7 @@ function createBob() {
     } else if (playerRace == "Undead") {
         // make the player undead
         // const Bob = new NPC(35, 6, 10, playerRace)
-        Bob.health = 28
+        Bob.health = 35
         Bob.attack = 6
         Bob.defense = 10
         Bob.race = playerRace
@@ -364,7 +364,7 @@ function createBob() {
         } else {
             playerRace = "Undead"
             // const Bob = new NPC(35, 6, 10, playerRace)
-            Bob.health = 28
+            Bob.health = 35
             Bob.attack = 6
             Bob.defense = 10
             Bob.race = playerRace
@@ -440,17 +440,59 @@ document.querySelector("#Fight").onclick = function () {
     if (Bob.life === false) {
         // endGame()
     } else {
-        victoryCounter++
-        if (Bob.health < (Bob.maxHP - 5)) {
-            Bob.health += 2
-        }
-        if (healCount == 2) {
-            for (let i = 0; i < (victoryBonus.length - 1); i++) {
-                victoryBonus[i].disabled = false
+        if (diff === "Easy") {
+            victoryCounter++
+            if (victoryCounter != 3) {
+                if (Bob.health < (Bob.maxHP - 5)) {
+                    Bob.health += 2
+                }
+                if (healCount == 2) {
+                    for (let i = 0; i < (victoryBonus.length - 1); i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                } else {
+                    for (let i = 0; i < victoryBonus.length; i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                }
+            } else {
+                endGame()
             }
-        } else {
-            for (let i = 0; i < victoryBonus.length; i++) {
-                victoryBonus[i].disabled = false
+        } else if (diff === "Medium") {
+            victoryCounter++
+            if (victoryCounter != 6) {
+                if (Bob.health < (Bob.maxHP - 5)) {
+                    Bob.health += 2
+                }
+                if (healCount == 2) {
+                    for (let i = 0; i < (victoryBonus.length - 1); i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                } else {
+                    for (let i = 0; i < victoryBonus.length; i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                }
+            } else {
+                endGame()
+            }
+        } else if (diff === "Hard") {
+            victoryCounter++
+            if (victoryCounter != 9) {
+                if (Bob.health < (Bob.maxHP - 5)) {
+                    Bob.health += 2
+                }
+                if (healCount == 2) {
+                    for (let i = 0; i < (victoryBonus.length - 1); i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                } else {
+                    for (let i = 0; i < victoryBonus.length; i++) {
+                        victoryBonus[i].disabled = false
+                    }
+                }
+            } else {
+                endGame()
             }
         }
     }
@@ -576,5 +618,16 @@ function brawl(player, opponent) {
 function endGame() {
     // check if victories == 3, 6, 9 based on difficulty
     // pull footer Modal with vitory statement and a 8-bit trophy art
-    // 
+    // have button on Modal to restart the Game
+    if (diff === "Easy" && victoryCounter === 3) {
+        // stuff
+    } else if (diff === "Medium" && victoryCounter === 6) {
+        // more stuff
+    } else if (diff === "Hard" && victoryCounter === 9) {
+        // more more stuff
+    } else {
+        // you lose stuff
+    }
+    // if Bob died pull footer Modal with death image instead of trophy
+    // have button on Modal to restart the Game
 }
