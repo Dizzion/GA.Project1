@@ -1,5 +1,6 @@
 // modals and input are my challenges to get done
 const modal = document.querySelector("#myModal")
+const modal2 = document.querySelector("#myModal2")
 const raceInput = document.querySelector("#raceSelector")
 const raceSelect = document.querySelector("#raceSelect")
 let playerRace = ""
@@ -24,6 +25,7 @@ let dodgePlayer = false
 const battleSound = new Audio("media/swords.mp3")
 const deathSound = new Audio("media/death.mp3")
 const winSound = new Audio("media/win.mp3")
+
 
 
 class NPC {
@@ -143,6 +145,7 @@ for (let i = 0; i < enemy.length; i++) {
 
 window.onload = function () {
     modal.style.display = "block"
+    modal2.style.display = "none"
     for (let i = 0; i < victoryBonus.length; i++) {
         victoryBonus[i].disabled = true;
     }
@@ -163,8 +166,8 @@ for (let i = 0; i < difficultySet.length; i++) {
         createBob()
         if (diff === "Easy") {
             easyDiff()
-        } else if (diff === "Medium") {
-            medDiff()
+        } else if (diff === "Normal") {
+            normDiff()
         }
     }
 }
@@ -388,9 +391,9 @@ function easyDiff() {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
 }
-// set medium difficulty
-function medDiff() {
-    // run medium version of game 6 opponents
+// set normal difficulty
+function normDiff() {
+    // run normal version of game 6 opponents
     while (enemy.length > 6) {
         enemy.shift(Math.floor(Math.random() * enemy.length))
     }
@@ -442,7 +445,7 @@ document.querySelector("#Fight").onclick = function () {
     brawl(Bob, enemy[en])
     enemy.splice(en, 1)
     if (Bob.life === false) {
-        // endGame()
+        endGame()
     } else {
         if (diff === "Easy") {
             victoryCounter++
@@ -462,7 +465,7 @@ document.querySelector("#Fight").onclick = function () {
             } else {
                 endGame()
             }
-        } else if (diff === "Medium") {
+        } else if (diff === "Normal") {
             victoryCounter++
             if (victoryCounter != 6) {
                 if (Bob.health < (Bob.maxHP - 5)) {
@@ -614,7 +617,7 @@ function brawl(player, opponent) {
     }
     if (diff === "Hard") {
         player.health += 2
-    } else if (diff === "Medium") {
+    } else if (diff === "Normal") {
         player.health++
     }
 }
@@ -624,23 +627,36 @@ function endGame() {
     // check if victories == 3, 6, 9 based on difficulty
     // pull footer Modal with vitory statement and a 8-bit trophy art
     // have button on Modal to restart the Game
+    modal2.style.display = "block"
     if (diff === "Easy" && victoryCounter === 3) {
         winSound.play()
         // pop up modal with trophy.png
         // suggest they try medium or hard and rest the game on button click
-    } else if (diff === "Medium" && victoryCounter === 6) {
+        document.querySelector(".endH").innerHTML = "Easy Victiory!"
+        document.querySelector(".endP").innerHTML = "You have cleared Easy Difficulty.<br>Reset and try Normal Difficulty!"
+    } else if (diff === "Normal" && victoryCounter === 6) {
         winSound.play()
         // pop up modal with trophy.png
         // suggest they try hard and reset the game on button click
+        document.querySelector(".endH").innerHTML = "Normal Victory!"
+        document.querySelector(".endP").innerHTML = "You have cleared Normal Difficulty!<br>Reset and try Hard Difficulty!"
     } else if (diff === "Hard" && victoryCounter === 9) {
         winSound.play()
         // pop up modal with trophy.png
         // change text on Modal to refect beating hard reset game on button press
+        document.querySelector(".endH").innerHTML = "Hard Victory!"
+        document.querySelector(".endP").innerHTML = "You have cleared the Hard Difficulty!<br>Reset the Game and try and different race."
     } else {
         deathSound.play()
         // pop up modal and death.png
+        document.querySelector(".endImg").src = "Images/death.png"
         // change text on modal telling them to retry and reset game on button press
+        document.querySelector(".endH").innerHTML = "Death!"
+        document.querySelector(".endP").innerHTML = "You have died and failed to clear the Arena.<br>Reset the Game to try again"
     }
-    // if Bob died pull footer Modal with death image instead of trophy
-    // have button on Modal to restart the Game
+}
+
+// have button on Modal to restart the Game
+document.querySelector(".resetPage").onclick = function() {
+    location.reload()
 }

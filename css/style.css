@@ -42,7 +42,6 @@ h1 {
 }
 
 .modal2 {
-    
     position: fixed;
     z-index: 1;
     left: 0;
@@ -70,7 +69,7 @@ h1 {
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: rgba(245, 154, 142, 0.897);
+    background-color: rgba(245, 197, 142, 0.897);
     color: white;
     text-align: center;
 }
@@ -114,9 +113,10 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
+    border-radius: 8px;
 }
 
-#Medium {
+#Normal {
     background-color: goldenrod;
     border: none;
     color: white;
@@ -125,6 +125,7 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
+    border-radius: 8px;
 }
 
 #Hard {
@@ -136,6 +137,7 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
+    border-radius: 8px;
 }
 
 .npc {
@@ -192,6 +194,7 @@ h1 {
     background-color: red;
     color: white;
     font-size: 45px;
+    border-radius: 8px;
 } 
 
 .bonus {
@@ -204,15 +207,18 @@ h1 {
 #attack {
     padding: 15px 53px;
     background-color: maroon;
+    border-radius: 8px;
 }
 
 #defense {
     background-color: mediumblue;
+    border-radius: 8px;
 }
 
 #heal {
     padding: 15px 81px;
     background-color: mediumspringgreen;
+    border-radius: 8px;
 }
 
 .AttUP {
@@ -235,8 +241,17 @@ h1 {
     font-size: 25px;
     background-color: #4caf50;
     color: white;
+    border-radius: 8px;
 }
 
 #endGameF {
     background-color: blueviolet;
+}
+
+#myModal2 {
+    top: 300px;
+}
+
+.endImg {
+    padding: 25px;
 }
