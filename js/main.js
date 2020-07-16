@@ -25,7 +25,9 @@ let dodgePlayer = false
 const battleSound = new Audio("media/swords.mp3")
 const deathSound = new Audio("media/death.mp3")
 const winSound = new Audio("media/win.mp3")
-
+const attUpS = new Audio("media/attUp.mp3")
+const defUpS = new Audio("media/defUp.mp3")
+const potionS = new Audio("media/potion.mp3")
 
 
 class NPC {
@@ -409,6 +411,7 @@ document.querySelector("#attack").onclick = function () {
     }
     document.querySelector("#Fight").disabled = false
 }
+document.querySelector("#attack").addEventListener("click", e => attUpS.play())
 // defense up button click functionality
 document.querySelector("#defense").onclick = function () {
     Bob.defense++
@@ -423,6 +426,7 @@ document.querySelector("#defense").onclick = function () {
     }
     document.querySelector("#Fight").disabled = false
 }
+document.querySelector("#defense").addEventListener("click", e => defUpS.play())
 // heal button click functionality
 document.querySelector("#heal").onclick = function () {
     Bob.health = Bob.maxHP
@@ -434,6 +438,7 @@ document.querySelector("#heal").onclick = function () {
     }
     document.querySelector("#Fight").disabled = false
 }
+document.querySelector("#heal").addEventListener("click", e => potionS.play())
 // fight button click functionality
 document.querySelector("#Fight").onclick = function () {
     let en = Math.floor(Math.random() * enemy.length)
