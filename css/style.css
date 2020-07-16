@@ -7,6 +7,10 @@ html {
     background-size: cover;
 }
 
+body {
+    height: 400px;
+}
+
 form {
     font-size: 24px;
 }
@@ -90,19 +94,6 @@ h1 {
     to {top: 0; opacity: 1;}
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 #Easy {
     background-color: #4caf50;
@@ -145,7 +136,7 @@ h1 {
     position: relative;
     justify-content: space-around;
     align-items: center;
-    top: 70px;
+    top: -245px;
 }
 
 .container {
@@ -179,17 +170,18 @@ h1 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    top: -60px;
+    background: transparent;
 }
 
 .victory {
     display: inline-block;
-    position: relative;
+    position: fixed;
     justify-content: left;
-    top: 80px;
+    top: 550px;
 }
 
 #Fight {
+    position: fixed;
     flex-grow: .5;
     padding: 15px 32px;
     border: none;
@@ -197,7 +189,8 @@ h1 {
     color: white;
     font-size: 45px;
     border-radius: 8px;
-    width: 70%;
+    width: 50%;
+    top: 800px;
 } 
 
 .bonus {
@@ -266,18 +259,23 @@ h1 {
 }
 
 .Bob {
-    position: fixed;
-    left: 295px;
-    top: 800px;
+    color: greenyellow;
+    position: relative;
+    top: -150px;
+    left: 4%;
 }
 
 .VS {
     position: fixed;
-    top: 800px;
+    left: 44%;
+    top: 260px;
+    font-size: 100px;
 }
 
 .oppName {
-    position: fixed;
-    top: 800px;
-    left: 1100px;
+    color: greenyellow;
+    position: relative;
+    align-items: left;
+    left: 75%;
+    top: -223px;
 }
