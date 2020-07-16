@@ -3,94 +3,110 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Arena Brawl</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h1 id="title">Arena Brawl</h1>
-        <div class="npc">
-            <div class="container">
-                <img src="Images/8bitMan.png" class="player">
-                <div class="Health" id="playerHP">Health: </div>
-                <div class="Attack" id="playerAtt">Attack: </div>
-                <div class="Defense" id="playerDef">Defense: </div>
-            </div>
-            <div class="container">
-                <img src="Images/who.png" class="enemy">
-                <div class="HealthOpp" id="enemyHP">Health: </div>
-                <div class="AttackOpp" id="enemyAtt">Attack: </div>
-                <div class="DefenseOpp" id="enemyDef">Defense: </div>
-            </div>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Arena Brawl</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1 id="title">Arena Brawl</h1>
+    <div class="npc">
+        <div class="container">
+            <img src="Images/8bitMan.png" class="player">
+            <div class="Health" id="playerHP">Health: </div>
+            <div class="Attack" id="playerAtt">Attack: </div>
+            <div class="Defense" id="playerDef">Defense: </div>
         </div>
-        <div id="myModal" class="modal">
-            <div class="modal-header">
-                <h1>Choose Your Arena!</h1>
-            </div>
-            <div class="modal-body">
-                <p>There are 8 Races to choose from each with their own benefit.<br>
-                    Halfling and Goblin || speed + 2, defense - 2, attack + 0<br> 
-                    Elf and Dark Elf || speed + 1, defense - 2, attack + 1<br>
-                    Human || speed + 0, defense + 0, attack + 0<br>
-                    Orc and Ogre || speed - 3, defense + 2, attack + 2<br>
-                    Undead || speed - 3, defense + 4, attack + 0
-                </p>
-                <form>
-                    Select your race:
-                    <select id="raceSelect">
-                        <option>Random</option>
-                        <option>Halfling</option>
-                        <option>Goblin</option>
-                        <option>Elf</option>
-                        <option>Dark Elf</option>
-                        <option>Human</option>
-                        <option>Orc</option>
-                        <option>Ogre</option>
-                        <option>Undead</option>
-                    </select>
-                    <input id="raceSelector" type="button" value="Choose">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <input class="diffSet" id="Easy" type="button" value="Easy">
-                <input class="diffSet" id="Medium" type="button" value="Medium">
-                <input class="diffSet" id="Hard" type="button" value="Hard">
-            </div>
+        <div class="container">
+            <img src="Images/who.png" class="enemy">
+            <div class="HealthOpp" id="enemyHP">Health: </div>
+            <div class="AttackOpp" id="enemyAtt">Attack: </div>
+            <div class="DefenseOpp" id="enemyDef">Defense: </div>
         </div>
-        <div class = "victory">
-            <input type="button" class="bonus" id="attack" value="Attack Up">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <img src="Images/attackUp.png" class="AttUP">
-            <br>
-            <input type="button" class="bonus" id="defense" value="Defense Up">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <img src="Images/defenseUp.png" class="DefUP">
-            <br><br>
-            <input type="button" class="bonus" id="heal" value="Heal"><br>
-            <img src="Images/Heal.png" class="heal" id="potion1">
-            <img src="Images/Heal.png" class="heal" id="potion2">
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-header">
+            <h1>Choose Your Arena!</h1>
         </div>
-        <div class="buttons">
-            <input type="button" id="Fight" value="Fight!">
+        <div class="modal-body">
+            <p>There are 8 Races to choose from each with their own benefit.<br>
+                Halfling and Goblin || speed + 2, defense - 2, attack + 0<br>
+                Elf and Dark Elf || speed + 1, defense - 2, attack + 1<br>
+                Human || speed + 0, defense + 0, attack + 0<br>
+                Orc and Ogre || speed - 3, defense + 2, attack + 2<br>
+                Undead || speed - 3, defense + 4, attack + 0
+            </p>
+            <form>
+                Select your race:
+                <select id="raceSelect">
+                    <option>Random</option>
+                    <option>Halfling</option>
+                    <option>Goblin</option>
+                    <option>Elf</option>
+                    <option>Dark Elf</option>
+                    <option>Human</option>
+                    <option>Orc</option>
+                    <option>Ogre</option>
+                    <option>Undead</option>
+                </select>
+                <input id="raceSelector" type="button" value="Choose">
+            </form>
         </div>
-        <script src="js/main.js" async defer></script>
-    </body>
+        <div class="modal-footer">
+            <input class="diffSet" id="Easy" type="button" value="Easy">
+            <input class="diffSet" id="Medium" type="button" value="Medium">
+            <input class="diffSet" id="Hard" type="button" value="Hard">
+        </div>
+    </div>
+    <div class="victory">
+        <input type="button" class="bonus" id="attack" value="Attack Up">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <img src="Images/attackUp.png" class="AttUP">
+        <br>
+        <input type="button" class="bonus" id="defense" value="Defense Up">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <img src="Images/defenseUp.png" class="DefUP">
+        <br><br>
+        <input type="button" class="bonus" id="heal" value="Heal"><br>
+        <img src="Images/Heal.png" class="heal" id="potion1">
+        <img src="Images/Heal.png" class="heal" id="potion2">
+    </div>
+    <div class="buttons">
+        <input type="button" id="Fight" value="Fight!">
+    </div>
+    <div class="modal2" id="myModal2">
+        <div class="modal-header" id="endGameH">
+            <h1>Enter Appropriate Text here</h1>
+        </div>
+        <div class="modal-body" id="endGameB">
+            <p>Relivant Text Goes Here</p>
+        </div>
+        <div class="modal-footer" id="endGameF">
+            <input type="button" class="resetPage" value="Reset Game">
+        </div>
+    </div>
+    <script src="js/main.js" async defer></script>
+</body>
+
 
 </html>

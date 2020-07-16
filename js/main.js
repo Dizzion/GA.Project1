@@ -160,7 +160,6 @@ for (let i = 0; i < difficultySet.length; i++) {
         diff = difficultySet[i].value
         modal.style.display = "none"
         // create the players character based on race chosen
-        // base stats 30hp 5att 4def 1speed
         createBob()
         if (diff === "Easy") {
             easyDiff()
@@ -626,13 +625,21 @@ function endGame() {
     // pull footer Modal with vitory statement and a 8-bit trophy art
     // have button on Modal to restart the Game
     if (diff === "Easy" && victoryCounter === 3) {
-        // stuff
+        winSound.play()
+        // pop up modal with trophy.png
+        // suggest they try medium or hard and rest the game on button click
     } else if (diff === "Medium" && victoryCounter === 6) {
-        // more stuff
+        winSound.play()
+        // pop up modal with trophy.png
+        // suggest they try hard and reset the game on button click
     } else if (diff === "Hard" && victoryCounter === 9) {
-        // more more stuff
+        winSound.play()
+        // pop up modal with trophy.png
+        // change text on Modal to refect beating hard reset game on button press
     } else {
-        // you lose stuff
+        deathSound.play()
+        // pop up modal and death.png
+        // change text on modal telling them to retry and reset game on button press
     }
     // if Bob died pull footer Modal with death image instead of trophy
     // have button on Modal to restart the Game

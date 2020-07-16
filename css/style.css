@@ -41,6 +41,19 @@ h1 {
     background-color: rgba(0,0,0,0.4);
 }
 
+.modal2 {
+    
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
 .modal-header {
     padding: 2px 16px;
     background-color: #1b849e;
@@ -215,4 +228,15 @@ h1 {
     width: 65px;
     top: 15px;
     opacity: 0;
+}
+
+.resetPage {
+    padding: 25px 65px;
+    font-size: 25px;
+    background-color: #4caf50;
+    color: white;
+}
+
+#endGameF {
+    background-color: blueviolet;
 }
