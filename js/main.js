@@ -22,6 +22,8 @@ let victoryCounter = 0
 let dodgeEnemy = false
 let dodgePlayer = false
 const battleSound = new Audio("media/swords.mp3")
+const deathSound = new Audio("media/death.mp3")
+const winSound = new Audio("media/win.mp3")
 
 
 class NPC {
