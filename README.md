@@ -1,6 +1,7 @@
 # GA.Project1 
 by Alex Shaver
 # Arena Brawl
+https://dizzion.github.io/GA.Project1/
 ## Overview
 
  **Arena Brawl** is a battle based game that takes place between you, the Gladiator, and the other combatants. I wanted to make a fun combat based game with different possibilities and outcomes based on how you play. Last one standing is the **WINNER**. Help Bob, the Conqueror, defeat his enemies and rise to the top to become the **ULTIMATE WARRIOR**. But if Bob, the Conqueror, dies you lose and must restart the game.
