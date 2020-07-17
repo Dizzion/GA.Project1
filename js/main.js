@@ -233,7 +233,7 @@ function createBob() {
             Bob.speed++
         } else if (randoRa === 7) {
             playerRace = "Ogre"
-            Bob.img = "Images/8BitOrge.png"
+            Bob.img = "Images/8BitOgre.png"
             // const Bob = new NPC(44, 9, 7, playerRace)
             Bob.health = 44
             Bob.attack = 9
@@ -308,7 +308,7 @@ function createBob() {
         Bob.speed++
     } else if (playerRace == "Ogre") {
         // make the player an ogre
-        Bob.img = "Images/8BitOrge.png"
+        Bob.img = "Images/8BitOgre.png"
         // const Bob = new NPC(44, 9, 7, playerRace)
         Bob.health = 44
         Bob.attack = 9
@@ -688,6 +688,6 @@ function endGame() {
 }
 
 // have button on Modal to restart the Game
-document.querySelector(".resetPage").onclick = function() {
+document.querySelector(".resetPage").onclick = function () {
     location.reload()
 }
