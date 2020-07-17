@@ -114,25 +114,25 @@ class NPC {
     }
 };
 
-const goblin = new NPC(16, 4, 0, "Goblin")
+const goblin = new NPC(25, 5, 2, "Goblin")
 goblin.img = "Images/goblin.png"
-const ogre = new NPC(25, 6, 4, "Ogre")
+const ogre = new NPC(35, 7, 6, "Ogre")
 ogre.img = "Images/ogre.png"
-const darkElf = new NPC(19, 5, 1, "Dark Elf")
+const darkElf = new NPC(27, 7, 3, "Dark Elf")
 darkElf.img = "Images/darkElf.png"
 const skeleton = new NPC(14, 4, 6, "Undead")
 skeleton.img = "Images/Undead.png"
 skeleton.name = "Skeleton"
-const lich = new NPC(12, 4, 6, "Undead")
+const lich = new NPC(22, 12, 5, "Undead")
 lich.img = "Images/lich.png"
 lich.name = "Lich"
-const halfling = new NPC(18, 4, 0, "Halfling")
+const halfling = new NPC(25, 8, 2, "Halfling")
 halfling.img = "Images/halfling.png"
-const elf = new NPC(19, 5, 1, "Elf")
+const elf = new NPC(27, 7, 3, "Elf")
 elf.img = "Images/Elf.png"
-const orc = new NPC(25, 6, 4, "Orc")
+const orc = new NPC(33, 9, 4, "Orc")
 orc.img = "Images/Orc.png"
-const human = new NPC(20, 4, 2, "Human")
+const human = new NPC(30, 6, 5, "Human")
 human.img = "Images/human.png"
 const Bob = new NPC(40, 7, 5, "Human")
 Bob.img = "Images/8bitMan.png"
@@ -538,6 +538,8 @@ document.querySelector("#Fight").onclick = function () {
 // brawl function
 function brawl(player, opponent) {
     // while loop the combat with a timer on each itteration of damage
+    let dealtDmg1 = 0;
+    let dealtDmg2 = 0;
     battleSound.play()
     while ((player.health != 0) && (opponent.health != 0)) {
         // check dodge
@@ -549,18 +551,26 @@ function brawl(player, opponent) {
         if (player.speed == opponent.speed) {
             if (dodgePlayer === true && dodgeEnemy === false) {
                 // player dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
                 // setTimeout(() => {
-                opponent.health -= player.dealDMG()
+                opponent.health -= dealtDmg1
                 // }, 3000) 
             } else if (dodgePlayer === false && dodgeEnemy === true) {
                 // opponent dodged
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                player.health -= opponent.dealDMG()
+                player.health -= dealtDmg2
                 // }, 3000)
             } else if (dodgePlayer === false && dodgeEnemy === false) {
                 // nether dodged
                 // setTimeout(() => {
-                [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
+                [player.health, opponent.health] = [player.health - dealtDmg2, opponent.health - dealtDmg1]
                 // }, 3000)
             } else {
                 // both dodged
@@ -569,19 +579,27 @@ function brawl(player, opponent) {
         } else if (player.speed > opponent.speed) {
             if (dodgePlayer === true && dodgeEnemy === false) {
                 // player dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
                 // setTimeout(() => {
-                opponent.health -= player.dealDMG()
-                // }, 3000)
+                opponent.health -= dealtDmg1
+                // }, 3000) 
             } else if (dodgePlayer === false && dodgeEnemy === true) {
                 // opponent dodged
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                player.health -= opponent.dealDMG()
+                player.health -= dealtDmg2
                 // }, 3000)
             } else if (dodgePlayer === false && dodgeEnemy === false) {
                 // nether dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                opponent.health -= player.dealDMG()
-                player.health -= opponent.dealDMG()
+                opponent.health -= dealtDmg1
+                player.health -= dealtDmg2
                 // }, 3000)
                 if (opponent.health <= 0) {
                     opponent.health = 0
@@ -593,19 +611,27 @@ function brawl(player, opponent) {
         } else if (player.speed < opponent.speed) {
             if (dodgePlayer == true && dodgeEnemy == false) {
                 // player dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
                 // setTimeout(() => {
-                opponent.health -= player.dealDMG()
-                // }, 3000)
+                opponent.health -= dealtDmg1
+                // }, 3000) 
             } else if (dodgePlayer == false && dodgeEnemy == true) {
                 // opponent dodged
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                player.health -= opponent.dealDMG()
+                player.health -= dealtDmg2
                 // }, 3000)
             } else if (dodgePlayer == false && dodgeEnemy == false) {
                 // nether dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                player.health -= opponent.dealDMG()
-                opponent.health -= player.dealDMG()
+                player.health -= dealtDmg2
+                opponent.health -= dealtDmg1
                 // }, 3000)
                 // opponent doesn't take damage if player dies
                 if (player.health <= 0) {
@@ -618,18 +644,26 @@ function brawl(player, opponent) {
         } else {
             if (dodgePlayer === true && dodgeEnemy === false) {
                 // player dodged
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
                 // setTimeout(() => {
-                opponent.health -= player.dealDMG()
-                // }, 3000) 
+                opponent.health -= dealtDmg1
+                // }, 3000)  
             } else if (dodgePlayer === false && dodgeEnemy === true) {
                 // opponent dodged
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
                 // setTimeout(() => {
-                player.health -= opponent.dealDMG()
+                player.health -= dealtDmg2
                 // }, 3000)
             } else if (dodgePlayer === false && dodgeEnemy === false) {
                 // nether dodged
                 // setTimeout(() => {
-                [player.health, opponent.health] = [player.health - opponent.dealDMG(), opponent.health - player.dealDMG()]
+                dealtDmg1 = player.dealDMG() - opponent.defense
+                dealtDmg2 = opponent.dealDMG() - player.defense
+                if (dealtDmg1 < 1) { dealtDmg1 = 1 }
+                if (dealtDmg2 < 1) { dealtDmg2 = 1 }
+                [player.health, opponent.health] = [player.health - dealtDmg2, opponent.health - dealtDmg1]
                 // }, 3000)
             } else {
                 // both dodged
@@ -645,11 +679,6 @@ function brawl(player, opponent) {
         }
         playerDisplayHP.innerHTML = ("Health: " + player.health)
         oppDisplayHP.innerHTML = ("Health: " + opponent.health)
-    }
-    if (diff === "Hard") {
-        player.health += 2
-    } else if (diff === "Normal") {
-        player.health++
     }
 }
 
