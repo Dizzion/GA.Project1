@@ -25,7 +25,7 @@ There are 4 buttons that the user will interact with while playing Arena Brawl i
 
 Below the img of the players character the page will show what or who they are going up against that round
 There will be 9 opponents that the player could face but there will only be 4 matches played
-* Difficulties selected on page open through prompt()
+* Difficulties selected on page open through opening modal
     * Easy - 3 Opponents
     * Medium - 6 Opponents
     * Hard - All(9) Opponents
