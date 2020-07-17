@@ -24,7 +24,7 @@ h1 {
     position: relative;
     text-align: center;
     color: #20c449;
-    font-size: 105px;
+    font-size: 85px;
     top: -70px;
 }
 
@@ -124,7 +124,6 @@ h1 {
     position: relative;
     justify-content: space-around;
     align-items: center;
-    top: -245px;
 }
 
 .container {
@@ -136,20 +135,20 @@ h1 {
 
 .Attack {
     position: absolute;
-    bottom: -15px;
-    left: -15px;
+    bottom: -10%;
+    left: -15%;
 }
 
 .Health {
     position: absolute;
-    top: -6px;
-    left: 20px;
+    top: -15%;
+    left: 13%;
 }
 
 .Defense {
     position: absolute;
-    bottom: -15px;
-    right: 10px;
+    bottom: -10%;
+    right: 5%;
 }
 
 .buttons {
@@ -165,7 +164,7 @@ h1 {
     display: inline-block;
     position: fixed;
     justify-content: left;
-    top: 55%;
+    top: 20%;
 }
 
 #Fight {
@@ -251,7 +250,7 @@ h1 {
 .VS {
     position: fixed;
     left: 44%;
-    top: 20%;
+    top: 40%;
     font-size: 100px;
 }
 

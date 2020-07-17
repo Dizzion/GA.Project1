@@ -243,7 +243,7 @@ function createBob() {
             Bob.speed++
         } else {
             playerRace = "Undead"
-            Bob.img = "Images/8BitUndead"
+            Bob.img = "Images/8BitUndead.png"
             // const Bob = new NPC(35, 6, 10, playerRace)
             Bob.health = 35
             Bob.attack = 6
@@ -318,7 +318,7 @@ function createBob() {
         Bob.speed++
     } else if (playerRace == "Undead") {
         // make the player undead
-        Bob.img = "Images/8BitUndead"
+        Bob.img = "Images/8BitUndead.png"
         // const Bob = new NPC(35, 6, 10, playerRace)
         Bob.health = 35
         Bob.attack = 6
@@ -365,7 +365,7 @@ function createBob() {
             Bob.speed++
         } else if (randoRa === 5) {
             playerRace = "Dark Elf"
-            Bob.img = "Images/8BitDarkElf"
+            Bob.img = "Images/8BitDarkElf.png"
             // const Bob = new NPC(38, 8, 3, playerRace)
             Bob.health = 38
             Bob.attack = 8
@@ -375,7 +375,7 @@ function createBob() {
             Bob.speed++
         } else if (randoRa === 6) {
             playerRace = "Orc"
-            Bob.img = "Images/8BitOrc"
+            Bob.img = "Images/8BitOrc.png"
             // const Bob = new NPC(44, 9, 7, playerRace)
             Bob.health = 44
             Bob.attack = 9
@@ -385,7 +385,7 @@ function createBob() {
             Bob.speed++
         } else if (randoRa === 7) {
             playerRace = "Ogre"
-            Bob.img = "Images/8BitOgre"
+            Bob.img = "Images/8BitOgre.png"
             // const Bob = new NPC(44, 9, 7, playerRace)
             Bob.health = 44
             Bob.attack = 9
@@ -395,7 +395,7 @@ function createBob() {
             Bob.speed++
         } else {
             playerRace = "Undead"
-            Bob.img = "Images/8BitUndead"
+            Bob.img = "Images/8BitUndead.png"
             // const Bob = new NPC(35, 6, 10, playerRace)
             Bob.health = 35
             Bob.attack = 6
