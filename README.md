@@ -36,5 +36,5 @@ The entire page has a background img of the Colosseum.
 
 There will be a base class that creates objects for the 9 opponents and player. These classes will inherit some functions and values that will need to be in the object for fight to read. Opponents and the player will deal random base damage before the attack value gets added between 1 and 3. Certain enemies will dodge more or less based on their race.
 
-**Challenge to myself** make the fight function **Pause during each damage iteration and update the HP of the player** after each hit so that the user can visually see each time they are hit in a fight.
+
 
