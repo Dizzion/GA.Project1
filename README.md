@@ -4,7 +4,14 @@ by Alex Shaver
 https://dizzion.github.io/GA.Project1/
 ## Overview
 
- **Arena Brawl** is a battle based game that takes place between you, the Gladiator, and the other combatants. I wanted to make a fun combat based game with different possibilities and outcomes based on how you play. Last one standing is the **WINNER**. Help Bob, the Conqueror, defeat his enemies and rise to the top to become the **ULTIMATE WARRIOR**. But if Bob, the Conqueror, dies you lose and must restart the game.
+ **Arena Brawl** is a battle based game that takes place between you, the Gladiator, and the other combatants. I wanted to make a fun combat based game with different possibilities and outcomes based on how you play. Last one standing is the **WINNER**. Help Bob, the Conqueror, defeat his enemies and rise to the top to become the **ULTIMATE WARRIOR**. But if Bob, the Conqueror, dies you lose and must restart the game. Bob can be any of the available races and starts with different stats based on which one you go with, as well as, different skins.
+
+ Bob, the Conqueror
+
+ ![Man](Images/8bitMan.png) ![Undead](Images/8BitUndead.png)
+ ![Goblin](Images/8BitGoblin.png) ![Halfling](Images/8BitHalfling.png)
+ ![Ogre](Images/8BitOgre.png) ![Orc](Images/8BitOrc.png)
+ ![Elf](Images/8BitElf.png) ![DarkElf](Images/8BitDarkElf.png)
 
 
 ![Wireframe](Images/ArenaWireframeP1.png)
@@ -30,11 +37,13 @@ There will be 9 opponents that the player could face but there will only be 4 ma
     * Medium - 6 Opponents
     * Hard - All(9) Opponents
 
-Inside the 8-bit Character img in the upperleft will display your Health in the lower left will display attack and lower right will display defense.
+There is a function that handles the fight between the player and the computer that uses other functions to calculate damage and adjust the health of both the player and opponent.
 
-The entire page has a background img of the Colosseum.
+Both the player and the opponents are derived from the same NPC class that can be used to make any number of character in the game that you have assests for. It checks dodges and dmg and death all passed to each character created.
 
 There will be a base class that creates objects for the 9 opponents and player. These classes will inherit some functions and values that will need to be in the object for fight to read. Opponents and the player will deal random base damage before the attack value gets added between 1 and 3. Certain enemies will dodge more or less based on their race.
+
+On page load there is a modal that pops up for you to choose your race and and difficulty. Doing so will call the function to create the main character Bob and set the difficulty be removing enemies at random from the array that they get populated in with the game start.
 
 
 
